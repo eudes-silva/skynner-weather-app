@@ -38,7 +38,7 @@ export default {
       if (!this.info.cityName) {
         return;
       }
-      if(this.cities.length<5){
+      if(this.cities.length<5){//local storage array limit = 5 cities
         this.cities.push(this.info.cityName);
         this.saveCity();
       }else{
@@ -72,5 +72,8 @@ export default {
 <style scoped>
 .search-result__wrapper {
   border: 1px solid #000;
+  display:flex;
+  flex-direction: column;
+  height:40%;
 }
 </style>
