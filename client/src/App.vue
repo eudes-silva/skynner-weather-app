@@ -53,8 +53,6 @@ body {
 }
 
 .container {
-  background-color: aliceblue;
-
   display: flex;
   flex-direction: column;
 

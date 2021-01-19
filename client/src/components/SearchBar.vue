@@ -35,30 +35,54 @@ export default {
 
 <style scoped>
   .search-wrapper{
-    border:1px solid #000;
     height:10%;
   }
 
   input {
+    background-color:#583e92;
     background-image:url('../assets/search-solid.svg');
     background-repeat:no-repeat;
     background-position: right 5px center;
     background-size: 15px;
-    padding: 1% 0.2em; 
+
+    font-family: 'Open Sans', sans-serif;
+    font-size:1em;
+    letter-spacing:0.5px;
+    color:#fff;
+    font-weight: 700;
+
+    display:block;
+    padding:1% 30px 1% 10px;
     box-sizing: border-box;
     width: 100%;
-    border: 1px solid #333;
+    height:30px;
+    
+    border: 2px solid #583e92;
+    border-radius:2px;
+    box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.15);
+  }
+
+  input:focus{
+    font-size:1em; 
+    border-radius:2px;
+    outline:#fff;
   }
   
 ::-webkit-input-placeholder { 
-  font-weight:700;
-  transform: translateX(-25px);
-  text-align:right; 
-}
-input::-moz-placeholder { 
-  font-weight:700;
-  -moz-transform: translateX(-20px); /*??? doesnt work in firefox?*/
-  text-align:right; 
-}
+  color: #fff;
+  opacity:0.5;
 
+  font-family: 'Open Sans', sans-serif;
+  font-weight:700;
+  text-align:right; 
+  letter-spacing:0.5px;
+}
+::-moz-placeholder { 
+  font-family: 'Open Sans', sans-serif;
+  font-weight:700;
+  text-align:right; 
+  letter-spacing:0.5px; 
+}
 </style>
