@@ -126,7 +126,7 @@ export default {
   color:#fff;
   background-color:#583e92;
   text-transform: uppercase;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
 
   border:none;
   border-radius:2px;
@@ -138,6 +138,6 @@ export default {
 }
 
 .btn-save:hover{
-  background-color:#B388EB;
+  background-color:#7954a8;
 }
 </style>
