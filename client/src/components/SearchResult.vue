@@ -1,13 +1,13 @@
 <template>
   <div class="search-result__wrapper">
-    <h3 v-if="info">{{ info.cityName }}</h3>
-    <p v-if="info">{{ info.date }}, {{ info.time }}</p>
-    <ul>
-      <li v-if="info">temperatura: {{ info.temp }}ºC</li>
-      <li v-if="info">umidade: {{ info.humidity }}%</li>
-      <li v-if="info">vento: {{ info.wind_speedy }}</li>
+    <h3 class="info-cityname" v-if="info">{{ info.cityName }}</h3>
+    <p class="info-date info-time" v-if="info">{{ info.date }}, {{ info.time }}</p>
+    <ul class="info-forecasting__list">
+      <li class="info-forecasting__item" v-if="info"><span>temperatura </span> {{ info.temp }}ºC</li>
+      <li class="info-forecasting__item" v-if="info"><span>umidade </span>{{ info.humidity }}%</li>
+      <li class="info-forecasting__item" v-if="info"><span>vento </span>{{ info.wind_speedy }}</li>
     </ul>
-    <button @click="addCity">salvar</button>
+    <button class="btn-save" @click="addCity">salvar</button>
   </div>
 </template>
 
@@ -35,11 +35,11 @@ export default {
         });
     },
     addCity() {
-      if (!this.info.cityName) {
+      if (!this.info) {
         return;
       }
       if(this.cities.length<5){//local storage array limit = 5 cities
-        this.cities.push(this.info.cityName);
+        this.cities.push(this.info);
         this.saveCity();
       }else{
         console.log("Não pode armazenar mais cidades!")
@@ -71,9 +71,73 @@ export default {
 
 <style scoped>
 .search-result__wrapper {
-  border: 1px solid #000;
   display:flex;
   flex-direction: column;
-  height:40%;
+  align-items: center;
+  justify-content:space-around;
+
+  color:#35281D;
+
+  border-radius:2px;
+  
+  height:auto;
+}
+
+.info-cityname{
+  margin-bottom:0;
+}
+
+.info-date{
+  margin-top:0;
+}
+
+.info-forecasting__list{
+  margin:10px 0 0 0;
+  padding:0;
+
+  width:100%;
+}
+
+.info-forecasting__item{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  font-weight: 700;
+  font-size:1.2em;
+  
+  margin:10px auto 0 auto;
+  
+  width:60%;
+}
+
+.info-forecasting__list .info-forecasting__item span{
+  font-size:1em;
+  font-weight: 500;
+  text-transform:capitalize;
+
+  margin-right:10px;
+}
+
+.btn-save{
+  font-size: 1.2em;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  color:#fff;
+  background-color:#583e92;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease-in-out;
+
+  border:none;
+  border-radius:2px;
+    
+  margin:20px 0 10px;
+  padding:15px 0;
+  
+  width:60%;
+}
+
+.btn-save:hover{
+  background-color:#B388EB;
 }
 </style>
