@@ -48,6 +48,7 @@ export default {
   .saved-cities__wrapper{
     display:flex;
     flex-direction: column;
+    color:#35281D;
     height:40%;
   }
 
@@ -60,16 +61,27 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    font-size:1.2em;
+    font-weight: 800;
 }
 
   .saved-cities__btn-close{
     border-radius:50%;
     border:2px solid #333;
     cursor:pointer;
-    font-weight: 700;
-    padding:6px 4px 4px 4px;
-    width:30px;
-    height:30px;
+    font-size:1em;
+    /* padding:6px 4px 4px 4px; */
+    width:32px;
+    height:32px;
+    line-height: 28px;
+    vertical-align: middle;
+    color:#333;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .saved-cities__btn-close:hover{
+    color: #FF0054;
+    transition: color 0.2s ease-in-out;
   }
 
   .saved-cities__btn{
