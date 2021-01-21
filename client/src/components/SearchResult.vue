@@ -1,11 +1,11 @@
 <template>
-  <div class="search-result__wrapper">
-    <h3 class="info-cityname" v-if="info">{{ info.cityName }}</h3>
-    <p class="info-date info-time" v-if="info">{{ info.date }}, {{ info.time }}</p>
+  <div class="search-result__wrapper" v-if="info">
+    <h3 class="info-cityname" :cityName="info.cityName">{{ info.cityName }}</h3>
+    <p class="info-date info-time" :date="info.date" :time="info.time">{{ info.date }}, {{ info.time }}</p>
     <ul class="info-forecasting__list">
-      <li class="info-forecasting__item" v-if="info"><span>temperatura </span> {{ info.temp }}ºC</li>
-      <li class="info-forecasting__item" v-if="info"><span>umidade </span>{{ info.humidity }}%</li>
-      <li class="info-forecasting__item" v-if="info"><span>vento </span>{{ info.wind_speedy }}</li>
+      <li class="info-forecasting__item" :temp="info.temp"><span>temperatura </span> {{ info.temp }}ºC</li>
+      <li class="info-forecasting__item" :humidity="info.humidity"><span>umidade </span>{{ info.humidity }}%</li>
+      <li class="info-forecasting__item" :wind_speedy="info.wind_speedy"><span>vento </span>{{ info.wind_speedy }}</li>
     </ul>
     <button class="btn-save" @click="addCity">salvar</button>
   </div>
@@ -18,7 +18,7 @@ export default {
   name: 'SearchResult',
   data() {
     return {
-      info: null,
+      info: '',
       cities:[],
     };
   },
@@ -38,13 +38,19 @@ export default {
       if (!this.info) {
         return;
       }
-      if(this.cities.length<5){//local storage array limit = 5 cities
-        this.cities.push(this.info);
-        this.saveCity();
+      if(this.cities.length<5){//session storage array limit = 5 cities
+        const cityAlreadyIncluded = this.cities.some(city=>city.cityName===this.info.cityName);
+        if(!cityAlreadyIncluded){
+          this.cities.push(this.info);
+          this.saveCity();
+        }else{
+          console.log('Erro! Você já salvou esta cidade!')
+        }
+        
       }else{
-        console.log("Não pode armazenar mais cidades!")
+        console.log("Erro! Não pode salvar mais cidades!")
       }
-      
+      this.$root.$refs.SavedCitiesList.addStoredCities();
     },
     removeCity(x) {
       this.cities.splice(x, 1);
@@ -52,17 +58,17 @@ export default {
     },
     saveCity() {
       const parsed = JSON.stringify(this.cities);
-      localStorage.setItem('cities', parsed);
+      sessionStorage.setItem('cities', parsed);
     }
   },
   mounted() {
     // this.getApiData();
     // this.saveCity()
-    if (localStorage.getItem('cities')) {
+    if (sessionStorage.getItem('cities')) {
       try {
-        this.cities = JSON.parse(localStorage.getItem('cities'));
+        this.cities = JSON.parse(sessionStorage.getItem('cities'));
       } catch(e) {
-        localStorage.removeItem('cities');
+        sessionStorage.removeItem('cities');
       }
     }
   },

@@ -2,7 +2,7 @@
   <div id="app">
     <div class="container">
       <SearchBar />
-      <SearchResult />
+      <SearchResult/>
       <SavedCitiesList />
     </div>
   </div>
@@ -15,6 +15,11 @@ import SavedCitiesList from './components/SavedCitiesList';
 
 export default {
   name: 'App',
+  data(){
+    return{
+      
+    }
+  },
   components: {
     SearchBar,
     SearchResult,

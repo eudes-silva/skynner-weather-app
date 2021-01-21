@@ -27,7 +27,6 @@ export default {
         this.$root.$refs.SearchResult.getApiData(cityInputValue.target.value);
         cityInputValue.target.value = '';
       }
-      
     }
   }
 }

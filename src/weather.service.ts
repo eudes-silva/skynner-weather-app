@@ -9,7 +9,7 @@ export class WeatherService {
     this.client = axios.create({
       baseURL: 'https://api.hgbrasil.com/',
       params: {
-        key: 'f7ebb55c', //api limit requests = 10 different cities before key blocking
+        key: 'a43c5b2a', //api limit requests = 10 different cities before key blocking
       },
     });
   }
