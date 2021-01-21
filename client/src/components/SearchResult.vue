@@ -52,10 +52,6 @@ export default {
       }
       this.$root.$refs.SavedCitiesList.addStoredCities();
     },
-    removeCity(x) {
-      this.cities.splice(x, 1);
-      this.saveCity();
-    },
     saveCity() {
       const parsed = JSON.stringify(this.cities);
       sessionStorage.setItem('cities', parsed);
@@ -64,13 +60,13 @@ export default {
   mounted() {
     // this.getApiData();
     // this.saveCity()
-    if (sessionStorage.getItem('cities')) {
-      try {
-        this.cities = JSON.parse(sessionStorage.getItem('cities'));
-      } catch(e) {
-        sessionStorage.removeItem('cities');
-      }
-    }
+    // if (sessionStorage.getItem('cities')) {
+    //   try {
+    //     this.cities = JSON.parse(sessionStorage.getItem('cities'));
+    //   } catch(e) {
+    //     sessionStorage.removeItem('cities');
+    //   }
+    // }
   },
 }
 </script>

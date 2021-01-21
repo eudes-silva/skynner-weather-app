@@ -1,7 +1,7 @@
 <template>
   <div class="saved-cities__wrapper" v-if="storedCities.length>0">
     <ul class="saved-cities__list" v-for="(city,index) in storedCities" :key="index">
-      <li :cityName="city.cityName">{{city.cityName}}<button>X</button></li>
+      <li class="saved-cities__item" :cityName="city.cityName">{{city.cityName}}<button class="saved-cities__btn-close" @click="removeCity(index)">X</button></li>
     </ul>
     <button class="saved-cities__btn">comparar</button>
   </div>
@@ -31,6 +31,11 @@ export default {
         sessionStorage.removeItem('cities');
       }
     }    
+    },
+    removeCity(x){
+      this.storedCities.splice(x, 1);
+      const parsed = JSON.stringify(this.storedCities);
+      sessionStorage.setItem('cities', parsed);
     }   
   },
   mounted(){
@@ -44,6 +49,27 @@ export default {
     display:flex;
     flex-direction: column;
     height:40%;
+  }
+
+  .saved-cities__list{
+    padding:0;
+  }
+
+  .saved-cities__item{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+  .saved-cities__btn-close{
+    border-radius:50%;
+    border:2px solid #333;
+    cursor:pointer;
+    font-weight: 700;
+    padding:6px 4px 4px 4px;
+    width:30px;
+    height:30px;
   }
 
   .saved-cities__btn{
