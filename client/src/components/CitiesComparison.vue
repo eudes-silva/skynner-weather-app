@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="container">
+    <div>
     <table>
       <tr>
         <th>cidade</th>
@@ -15,12 +16,23 @@
       </tr>
     </table>
   </div>
+  </div>
 </template>
 
 <script>
 export default {
-  
+  name:'CitiesComparison',
+  data(){
+    return{
+
+    }
+  },
+  methods:{
+
+  }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

@@ -1,36 +1,13 @@
 <template>
   <div id="app">
-    <div class="container">
-      <SearchBar />
-      <SearchResult :key="componentKey"/>
-      <SavedCitiesList />
-    </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import SearchBar from './components/SearchBar';
-import SearchResult from './components/SearchResult';
-import SavedCitiesList from './components/SavedCitiesList';
-
-export default {
-  name: 'App',
-  data(){
-    return{
-      componentKey: 0,   
-    }
-  },
-  components: {
-    SearchBar,
-    SearchResult,
-    SavedCitiesList,
-  },
-    methods: {
-      forceRerender() {
-        this.componentKey += 1;
-      }
-    }
-};
+  export default {
+    name: 'App',
+  };
 </script>
 
 <style>

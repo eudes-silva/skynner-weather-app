@@ -3,7 +3,7 @@
     <ul class="saved-cities__list">
       <li class="saved-cities__item" v-for="(city,index) in storedCities" :key="index"  :cityName="city.cityName">{{city.cityName}}<button class="saved-cities__btn-close" @click="removeCity(index)">X</button></li>
     </ul>
-    <button class="saved-cities__btn">comparar</button>
+    <router-link to="/compare"><button class="saved-cities__btn">comparar</button></router-link>
   </div>
 </template>
 
