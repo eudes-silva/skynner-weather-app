@@ -44,7 +44,8 @@ export default {
           this.cities.push(this.info);
           this.saveCity();
         }else{
-          console.log('Erro! Você já salvou esta cidade!')
+          console.log('Erro! Você já salvou esta cidade!');
+          this.$parent.forceRerender();
         }
         
       }else{
@@ -58,15 +59,14 @@ export default {
     }
   },
   mounted() {
-    // this.getApiData();
-    // this.saveCity()
-    // if (sessionStorage.getItem('cities')) {
-    //   try {
-    //     this.cities = JSON.parse(sessionStorage.getItem('cities'));
-    //   } catch(e) {
-    //     sessionStorage.removeItem('cities');
-    //   }
-    // }
+    // this.getApiData(this.info);
+    if (sessionStorage.getItem('cities')) {
+      try {
+        this.cities = JSON.parse(sessionStorage.getItem('cities'));
+      } catch(e) {
+        sessionStorage.removeItem('cities');
+      }
+    }
   },
 }
 </script>
@@ -83,6 +83,7 @@ export default {
   border-radius:2px;
   
   height:auto;
+
 }
 
 .info-cityname{
@@ -90,6 +91,8 @@ export default {
 }
 
 .info-date{
+  color:#177E89;
+  font-weight:600;
   margin-top:0;
 }
 
@@ -109,7 +112,7 @@ export default {
   font-size:1.2em;
   
   margin:10px auto 0 auto;
-  
+    
   width:60%;
 }
 

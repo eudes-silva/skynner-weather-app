@@ -2,7 +2,7 @@
   <div id="app">
     <div class="container">
       <SearchBar />
-      <SearchResult/>
+      <SearchResult :key="componentKey"/>
       <SavedCitiesList />
     </div>
   </div>
@@ -17,7 +17,7 @@ export default {
   name: 'App',
   data(){
     return{
-      
+      componentKey: 0,   
     }
   },
   components: {
@@ -25,6 +25,11 @@ export default {
     SearchResult,
     SavedCitiesList,
   },
+    methods: {
+      forceRerender() {
+        this.componentKey += 1;
+      }
+    }
 };
 </script>
 
@@ -35,6 +40,8 @@ html,
 body {
   box-sizing: border-box;
 
+  background-color: #fff;
+  
   margin: 0;
   padding: 0;
 
@@ -61,8 +68,10 @@ body {
   display: flex;
   flex-direction: column;
 
+  border-radius:2px;
+  
   width: 30%;
-  height: 90%;
+  height: auto;
 
   position: relative;
 }

@@ -38,7 +38,7 @@ export default {
   }
 
   input {
-    background-color:#583e92;
+    background-color: #fff;
     background-image:url('../assets/search-solid.svg');
     background-repeat:no-repeat;
     background-position: right 5px center;
@@ -47,9 +47,9 @@ export default {
     font-family: 'Open Sans', sans-serif;
     font-size:1em;
     letter-spacing:0.5px;
-    color:#fff;
+    color:#583e92;
     font-weight: 700;
-
+    
     display:block;
     padding:1% 30px 1% 10px;
     box-sizing: border-box;
@@ -57,6 +57,7 @@ export default {
     height:30px;
     
     border: 2px solid #583e92;
+    transition: border 0.2s ease-in-out;
     border-radius:2px;
     box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.15);
     -webkit-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.15);
@@ -67,10 +68,12 @@ export default {
     font-size:1em; 
     border-radius:2px;
     outline:#fff;
+    border:2px solid #92B4F4;
+    transition: border 0.2s ease-in-out;
   }
   
 ::-webkit-input-placeholder { 
-  color: #fff;
+  color: #583e92;
   opacity:0.5;
 
   font-family: 'Open Sans', sans-serif;
