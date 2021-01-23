@@ -45,7 +45,6 @@ export default {
           this.saveCity();
         }else{
           console.log('Erro! Você já salvou esta cidade!');
-          this.$parent.forceRerender();
         }
         
       }else{

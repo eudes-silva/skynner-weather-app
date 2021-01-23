@@ -59,17 +59,27 @@ export default {
     border: 2px solid #583e92;
     transition: border 0.2s ease-in-out;
     border-radius:2px;
+  }
+
+  input:hover{
     box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.15);
     -webkit-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.15);
     -moz-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.15);
+    transition: box-shadow 0.3s ease-in-out;
   }
 
   input:focus{
     font-size:1em; 
+    
     border-radius:2px;
     outline:#fff;
     border:2px solid #92B4F4;
     transition: border 0.2s ease-in-out;
+
+    box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.15);
+    transition: box-shadow 0.3s ease-in-out;
   }
   
 ::-webkit-input-placeholder { 
