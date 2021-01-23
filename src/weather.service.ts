@@ -1,15 +1,18 @@
 import { Injectable } from '@nestjs/common';
 import axios, { AxiosInstance } from 'axios';
+import * as dotenv from 'dotenv';
 
+dotenv.config();
 @Injectable()
 export class WeatherService {
   private client: AxiosInstance;
 
   constructor() {
+    const apiSecretKey = process.env.MY_API_KEY;
     this.client = axios.create({
       baseURL: 'https://api.hgbrasil.com/',
       params: {
-        key: 'ccd7b9b5', //api limit requests = 10 different cities before key blocking
+        key: `${apiSecretKey}`, //api limit requests = 10 different cities before key blocking
       },
     });
   }

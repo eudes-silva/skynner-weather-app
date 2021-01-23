@@ -74,7 +74,7 @@ export default {
   }
 
   .saved-cities__btn-close{
-    display: block;
+    display: inline-block;
     border-radius:50%;
     border: none;
     border:3px solid#35281D;
