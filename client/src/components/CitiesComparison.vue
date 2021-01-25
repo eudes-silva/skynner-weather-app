@@ -62,6 +62,8 @@ export default {
 
   border-top:1px solid #35281D;
   border-right:1px solid #35281D;
+
+  color: #35281D;;
 }
 
 .cities th{
