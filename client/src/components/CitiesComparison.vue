@@ -11,7 +11,7 @@
       </thead>
       <tbody>
         <tr class="cities__data" v-for="(city,index) in storedCities" :key="index">
-          <td>{{ city.cityName }}</td>
+          <td v-bind:style= "[city.cityName.length>12 ? {fontSize:'12px'} : {}]">{{ city.cityName }}</td>
           <td>{{ city.temp }}º</td>
           <td>{{ city.humidity }}%</td>
           <td>{{ city.wind_speedy }}</td>
@@ -47,24 +47,30 @@ export default {
 <style scoped>
 .container-compare {
   border-radius: 2px;
+
   width: 60%;
   height: auto;
+
   position: relative;
 }
 
 .cities {
   display: flex;
   flex-direction: column;
+
   width: 100%;
+
   border-top:1px solid #35281D;
   border-right:1px solid #35281D;
 }
 
 .cities th{
   height:50px;
+
   display:flex;
   align-items: center;
   justify-content: center;
+
   color: #7954a8;
   font-size: clamp(14px,3vw,20px);
   font-weight: 800;
@@ -80,8 +86,10 @@ export default {
   display:flex;
   align-items: center;
   justify-content: center;
+
   font-size: clamp(14px,3vw,20px);
   font-weight: 800;
+
   height: 50px;
 } 
 
