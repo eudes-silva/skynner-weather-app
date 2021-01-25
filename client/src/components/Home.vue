@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <SearchBar />
-    <SearchResult :key="componentKey"/>
-    <SavedCitiesList />
+      <SearchBar/>
+      <SearchResult :key="componentKey"/>
+      <SavedCitiesList />
   </div>
 </template>
 

@@ -7,7 +7,7 @@
       <li class="info-forecasting__item" :humidity="info.humidity"><span>umidade </span>{{ info.humidity }}%</li>
       <li class="info-forecasting__item" :wind_speedy="info.wind_speedy"><span>vento </span>{{ info.wind_speedy }}</li>
     </ul>
-    <button class="btn-save" @click="addCity">salvar</button>
+    <button class="btn-save" @click.prevent="addCity">salvar</button>
   </div>
 </template>
 
@@ -58,7 +58,7 @@ export default {
     }
   },
   mounted() {
-    // this.getApiData(this.info);
+    // this.getApiData('São Paulo');
     if (sessionStorage.getItem('cities')) {
       try {
         this.cities = JSON.parse(sessionStorage.getItem('cities'));

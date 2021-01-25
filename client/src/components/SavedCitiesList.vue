@@ -3,7 +3,7 @@
     <ul class="saved-cities__list">
       <li class="saved-cities__item" v-for="(city,index) in storedCities" :key="index"  :cityName="city.cityName">{{city.cityName}}<button class="saved-cities__btn-close" @click="removeCity(index)">X</button></li>
     </ul>
-    <router-link to="/compare"><button class="saved-cities__btn">comparar</button></router-link>
+    <router-link to="/compare" v-if="storedCities.length>1"><button class="saved-cities__btn">comparar</button></router-link>
   </div>
 </template>
 
@@ -36,11 +36,8 @@ export default {
       this.storedCities.splice(x, 1);
       const parsed = JSON.stringify(this.storedCities);
       sessionStorage.setItem('cities', parsed);
-      if(this.storedCities.length===0){
-        this.$parent.forceRerender();
-      }
-    }
-     
+      this.$parent.forceRerender();
+    }     
   },
   mounted(){
         
@@ -80,7 +77,7 @@ export default {
     display: inline-block;
     border-radius:50%;
     border: none;
-    border:3px solid#35281D;
+    border:3px solid #35281D;
     
     background:transparent;
     cursor:pointer;

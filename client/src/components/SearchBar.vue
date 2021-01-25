@@ -70,7 +70,7 @@ export default {
 
   input:focus{
     font-size:1em; 
-    
+
     border-radius:2px;
     outline:#fff;
     border:2px solid #92B4F4;
