@@ -11,7 +11,7 @@
       </thead>
       <tbody>
         <tr class="cities__data" v-for="(city,index) in storedCities" :key="index">
-          <td v-bind:style= "[city.cityName.length>12 ? {fontSize:'12px'} : {}]">{{ city.cityName }}</td>
+          <td v-bind:style= "[city.cityName.length>16 ? {fontSize:'clamp(58%,1.3vw,20px)'} : {}]">{{ city.cityName }}</td>
           <td>{{ city.temp }}º</td>
           <td>{{ city.humidity }}%</td>
           <td>{{ city.wind_speedy }}</td>
